@@ -22,6 +22,14 @@ class AppFctComp2Partie1(QDialog):
         if not self.ui.comboBox.currentText().strip():
             self.ui.table_fct_comp_2.setRowCount(0)
             display.refreshLabel(self.ui.label_fct_comp_2, "Veuillez indiquer un nom de catégorie")
+            try:
+                cursor = self.data.cursor()
+                result2 = cursor.execute("SELECT distinct catZone FROM V0_LesPlaces")
+            except Exception as e:
+                self.ui.table_fct_comp_2.setRowCount(0)
+                display.refreshLabel(self.ui.label_fct_comp_2, "Impossible d'afficher les résultats : " + repr(e))
+            else:
+                display.refreshGenericCombo(self.ui.comboBox, result2)
         else:
             try:
                 cursor = self.data.cursor()

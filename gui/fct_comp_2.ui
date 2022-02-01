@@ -37,23 +37,7 @@
       </widget>
      </item>
      <item>
-      <widget class="QComboBox" name="comboBox">
-       <item>
-        <property name="text">
-         <string>balcon</string>
-        </property>
-       </item>
-       <item>
-        <property name="text">
-         <string>orchestre</string>
-        </property>
-       </item>
-       <item>
-        <property name="text">
-         <string>poulailler</string>
-        </property>
-       </item>
-      </widget>
+      <widget class="QComboBox" name="comboBox"/>
      </item>
      <item>
       <widget class="QPushButton" name="pushButton">

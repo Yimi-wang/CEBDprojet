@@ -116,8 +116,8 @@
    <slot>refreshResult()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>351</x>
-     <y>51</y>
+     <x>589</x>
+     <y>64</y>
     </hint>
     <hint type="destinationlabel">
      <x>444</x>

@@ -14,7 +14,7 @@ class AppFctComp1Partie1(QDialog):
         self.ui = uic.loadUi("gui/fct_comp_1.ui", self)
         self.data = data
 
-    # Fonction de mise à joru de l'affichage
+    # Fonction de mise à jour de l'affichage
     @pyqtSlot()
     def refreshResult(self):
         # TODO 1.1 : fonction à modifier pour remplacer la zone de saisie par une liste de valeurs prédéfinies dans l'interface une fois le fichier ui correspondant mis à jour
@@ -28,8 +28,6 @@ class AppFctComp1Partie1(QDialog):
                 result = cursor.execute(
                     "SELECT noPlace, noRang, noZone, catZone, tauxZone FROM V0_LesPlaces WHERE catZone = ?",
                     [self.ui.comboBox.currentText().strip()])
-
-
             except Exception as e:
                 self.ui.table_fct_comp_1.setRowCount(0)
                 display.refreshLabel(self.ui.label_fct_comp_1, "Impossible d'afficher les résultats : " + repr(e))

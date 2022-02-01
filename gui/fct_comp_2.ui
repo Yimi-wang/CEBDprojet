@@ -37,7 +37,23 @@
       </widget>
      </item>
      <item>
-      <widget class="QLineEdit" name="lineEdit_fct_comp_2"/>
+      <widget class="QComboBox" name="comboBox">
+       <item>
+        <property name="text">
+         <string>balcon</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>orchestre</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>poulailler</string>
+        </property>
+       </item>
+      </widget>
      </item>
      <item>
       <widget class="QPushButton" name="pushButton">

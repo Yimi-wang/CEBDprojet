@@ -42,8 +42,24 @@ class AppTablesDataV1(QDialog):
         # TODO 1.4 : modifier pour afficher les nouveaux éléments (il faut aussi changer le fichier .ui correspondant)
         # TODO 1.5 : modifier pour afficher les nouveaux éléments (il faut aussi changer le fichier .ui correspondant)
         self.refreshTable(self.ui.label_representations, self.ui.tableRepresentations,
-                          "SELECT noSpec, nomSpec, dateRep, promoRep, prixBaseSpec, prixRep "
-                          "FROM LesRepresentations")
+                          "SELECT dateRep, noSpec, promoRep "
+                          "FROM LesRepresentations_base")
         self.refreshTable(self.ui.label_places, self.ui.tablePlaces,
-                          "SELECT noPlace, noRang, noZone, catZone, tauxZone "
+                          "SELECT noPlace, noRang, noZone "
                           "FROM LesPlaces")
+        self.refreshTable(self.ui.label_spectacles, self.ui.tableSpectacles,
+                          "SELECT *"
+                          "FROM LesSpectacles")
+        self.refreshTable(self.ui.label_zones, self.ui.tableZones,
+                          "SELECT *"
+                          "FROM LesZones")
+        self.refreshTable(self.ui.label_ventes, self.ui.tableVentes,
+                          "SELECT *"
+                          "FROM LesVentes")
+        self.refreshTable(self.ui.label_dossiers, self.ui.tableDossiers,
+                          "SELECT *"
+                          "FROM LesDossiers_base")
+        self.refreshTable(self.ui.label_reductions, self.ui.tableReductions,
+                          "SELECT *"
+                          "FROM LesReductions")
+

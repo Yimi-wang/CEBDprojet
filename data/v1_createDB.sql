@@ -3,7 +3,7 @@ create table LesSpectacles(
     noSpec integer not null,
     nomSpec varchar(50) not null,
     prixBaseSpec decimal (6,2) not null,
-    constraint pr_soec_noS_primary key (noSpec),
+    constraint pr_soec_noS primary key (noSpec),
     constraint ck_spec_noSpec check (noSpec > 0),
     constraint ck_spec_prixBaseSpec check (prixBaseSpec >= 0)
 );
@@ -12,7 +12,7 @@ create table LesRepresentations_base(
     dateRep date not null,
     noSpec integer not null,
     promoRep decimal (4,2) not null,
-    constraint pr_repr_date_primary key (dateRep),
+    constraint pr_repr_date primary key (dateRep),
     constraint ck_rep_noSpec check (noSpec > 0),
     constraint ck_rep_promoRep check (promoRep >= 0 and promoRep <=1),
     constraint fk_rep_noSpec foreign key (noSpec) references LesSpectacles(noSpec)
@@ -22,7 +22,7 @@ create table LesZones(
     noZone integer not null,
     catZone varchar (50) not null,
     tauxZone decimal (4,2) not null,
-    constraint pk_Zone_noZ_primary key (noZone),
+    constraint pk_Zone_noZ primary key (noZone),
     constraint ck_Zone_noZone check (noZone > 0),
     constraint ck_Zone_catZone check (catZone in ('orchestre', 'balcon', 'poulailler')),
     constraint ck_Zone_tauxZone check (tauxZone >= 0)
@@ -32,11 +32,11 @@ create table LesPlaces(
     noPlace integer,
     noRang integer,
     noZone integer not null,
-    constraint pk_Pla_noP_noR_primary key (noPlace,noRang),
+    constraint pk_Pla_noP_noR primary key (noPlace,noRang),
     constraint ck_Pla_noP check (noPlace > 0),
     constraint ck_Pla_noR check (noRang > 0),
     constraint ck_Pla_noZone check (noZone > 0),
-    constraint fk_Pla_noZone foreign key (noZone) rferences LesZones(noZone)
+    constraint fk_Pla_noZone foreign key (noZone) references LesZones(noZone)
 );
 
 create table LesVentes (
@@ -64,8 +64,9 @@ create table LesDossiers_base (
 create table LesReductions (
     catR varchar(50) not null,
     tauxR integer not null,
+    --catZone varchar(50) not null,
     constraint pk_red_catR primary key (catR),
-    constraint ck_Zone_catZone check (catZone in ('etudiants', 'scolaires', 'militaires','seniors','personneNormal','adherent')),
+    --constraint ck_Zone_catZone check (catZone in ('etudiants', 'scolaires', 'militaires','seniors','personneNormal','adherent')),
     constraint ck_red_tauxR check (tauxR >= 0 and tauxR <1)
 );
 

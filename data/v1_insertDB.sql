@@ -1,5 +1,5 @@
 INSERT INTO LesSpectacles SELECT DISTINCT noSpec, nomSpec, prixBaseSpec FROM V0_LesRepresentations;
-INSERT INTO LesRepresentations_base SELECT dateRep, promoRep, noSpec FROM V0_LesRepresentations;
+INSERT INTO LesRepresentations_base SELECT dateRep, noSpec, promoRep FROM V0_LesRepresentations;
 INSERT INTO LesPlaces SELECT DISTINCT noPlace, noRang, noZone FROM V0_LesPlaces;
 INSERT INTO LesZones SELECT DISTINCT noZone, catZone, tauxZone FROM V0_LesPlaces;
 
@@ -12,7 +12,7 @@ INSERT INTO LesReductions VALUES ('personneNormal',0);
 
 INSERT INTO LesDossiers_base VALUES (1,'24/12/2019 21:00');
 INSERT INTO LesDossiers_base VALUES (2,'24/12/2019 11:00');
-INSERT INTO LesDossiers_base VALUES (3,'23/12/2019 17:00';
+INSERT INTO LesDossiers_base VALUES (3,'23/12/2019 17:00');
 INSERT INTO LesDossiers_base VALUES (4,'20/12/2019 18:00');
 INSERT INTO LesDossiers_base VALUES (5,'21/12/2019 19:00');
 INSERT INTO LesDossiers_base VALUES (6,'25/12/2019 17:00');

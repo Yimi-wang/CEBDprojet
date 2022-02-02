@@ -64,13 +64,24 @@ create table LesDossiers_base (
 create table LesReductions (
     catR varchar(50) not null,
     tauxR integer not null,
-    --catZone varchar(50) not null,
     constraint pk_red_catR primary key (catR),
-    --constraint ck_Zone_catZone check (catZone in ('etudiants', 'scolaires', 'militaires','seniors','personneNormal','adherent')),
+   -- constraint ck_Zone_catR check (catR in ('etudiants', 'scolaires', 'militaires','seniors','personneNormal','adherent')),
     constraint ck_red_tauxR check (tauxR >= 0 and tauxR <1)
 );
-
-
 -- TODO 1.4 : Créer une vue LesRepresentations ajoutant le nombre de places disponible et d'autres possibles attributs calculés.
+#这个是还有哪些空位置  显示行数和列数
+create view LesPlaceDisponibleView (dateRep, noPlace, noRang) as
+    select dateRep, noPlace, noRang
+    from LesRepresentations_base
+    cross join LesPlaces
+    except
+    select dateRep, noPlace, noRang
+    from LesVentes;
+#这个是显示每个时间有多少个空位子 这个要输出到界面上的
+create view LesRepresentations(dataRep, promoRep, ptixRep, noSPec,placeDisp) as
+    SELECT dateRep, promoRep, prixBaseSpec*promoRep as prixRep, noSpec,count(dateRep) as placeDosp
+    FROM LesPlaceDisponibleView join LesRepresentations_base USING (dateRep)
+    join LesSpectacles USING (noSpec)
+    group by dateRep, promoRep, prixBaseSpec*promoRep, noSpec;
+
 -- TODO 1.5 : Créer une vue  avec le noDos et le montant total correspondant.
--- TODO 3.3 : Ajouter les éléments nécessaires pour créer le trigger (attention, syntaxe SQLite différent qu'Oracle)

@@ -63,3 +63,6 @@ class AppTablesDataV1(QDialog):
                           "SELECT *"
                           "FROM LesReductions")
 
+        # TODO 1.4 : modifier pour afficher les nouveaux éléments (il faut aussi changer le fichier .ui correspondant)
+
+        # TODO 1.5 : modifier pour afficher les nouveaux éléments (il faut aussi changer le fichier .ui correspondant)

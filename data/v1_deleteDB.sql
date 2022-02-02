@@ -6,3 +6,4 @@ DROP TABLE IF EXISTS LesPlaces;
 DROP TABLE IF EXISTS LesVentes;
 DROP TABLE IF EXISTS LesDossiers_base;
 DROP TABLE IF EXISTS LesReductions;
+DROP VIEW IF EXISTS LesRepresentation_avec_resteplace ;

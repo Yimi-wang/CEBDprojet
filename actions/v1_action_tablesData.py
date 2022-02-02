@@ -64,5 +64,10 @@ class AppTablesDataV1(QDialog):
                           "FROM LesReductions")
 
         # TODO 1.4 : modifier pour afficher les nouveaux éléments (il faut aussi changer le fichier .ui correspondant)
-
+        self.refreshTable(self.ui.label_RestePlace, self.ui.tableRestePlace,
+                          "SELECT *"
+                          "FROM LesRepresentationsView")
         # TODO 1.5 : modifier pour afficher les nouveaux éléments (il faut aussi changer le fichier .ui correspondant)
+        self.refreshTable(self.ui.label_PrixTotal, self.ui.tablePrixtotal,
+                          "SELECT *"
+                          "FROM LesDossiersView")

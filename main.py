@@ -14,7 +14,7 @@ from actions.v0_action_fct_comp_2_partie_1 import AppFctComp2Partie1
 
 # Classe utilisée pour lancer la fenêtre principale de l'application et définir ses actions
 class AppWindow(QMainWindow):
-# 试一下
+
     # Création d'un signal destiné à être émis lorsque la table est modifiée
     changedValue = pyqtSignal()
 

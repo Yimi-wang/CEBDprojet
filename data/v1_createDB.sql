@@ -69,7 +69,7 @@ create table LesReductions (
     constraint ck_red_tauxR check (tauxR >= 0 and tauxR <1)
 );
 -- TODO 1.4 : Créer une vue LesRepresentations ajoutant le nombre de places disponible et d'autres possibles attributs calculés.
-#这个是还有哪些空位置  显示行数和列数
+--这个是还有哪些空位置  显示行数和列数
 create view LesPlaceDisponibleView (dateRep, noPlace, noRang) as
     select dateRep, noPlace, noRang
     from LesRepresentations_base
@@ -77,7 +77,7 @@ create view LesPlaceDisponibleView (dateRep, noPlace, noRang) as
     except
     select dateRep, noPlace, noRang
     from LesVentes;
-#这个是显示每个时间有多少个空位子 这个要输出到界面上的
+--这个是显示每个时间有多少个空位子 这个要输出到界面上的
 create view LesRepresentations(dataRep, promoRep, ptixRep, noSPec,placeDisp) as
     SELECT dateRep, promoRep, prixBaseSpec*promoRep as prixRep, noSpec,count(dateRep) as placeDosp
     FROM LesPlaceDisponibleView join LesRepresentations_base USING (dateRep)
@@ -85,3 +85,18 @@ create view LesRepresentations(dataRep, promoRep, ptixRep, noSPec,placeDisp) as
     group by dateRep, promoRep, prixBaseSpec*promoRep, noSpec;
 
 -- TODO 1.5 : Créer une vue  avec le noDos et le montant total correspondant.
+--这个是显示每个票的价格
+create view LesTicketsView (noPlace, noRang, dateRep, prixTic) as
+    select noPlace,noRang, dateRep,round(((prixBaseSpec * (promoRep) * tauxZone) * (1 - tauxR)),2) as prixTic
+    from LesVentes join LesPlaces using (noPlace, noRang)
+    join LesZones using (noZone)
+    join LesReductions using (catR)
+    join LesRepresentations_base using (dateRep)
+    join LesSpectacles using (noSpec);
+--这个是显示每个dossier的价格（即为总价）（是要输出到屏幕上的）
+create view LesDossiersView (noDos, prixTotal) as
+    select noDos, round(SUM(prixTic),2) as prixTotal
+    from LesVentes
+    join LesTicketsView
+    using (noPlace,noRang,dateRep)
+    group by noDos;

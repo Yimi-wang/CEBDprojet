@@ -1002,7 +1002,7 @@
    <sender>pushButton_10</sender>
    <signal>clicked()</signal>
    <receiver>MainWindow</receiver>
-   <slot>open_fct_Par2_1()</slot>
+   <slot>open_fct_todo2_1()</slot>
    <hints>
     <hint type="sourcelabel">
      <x>549</x>
@@ -1011,6 +1011,22 @@
     <hint type="destinationlabel">
      <x>694</x>
      <y>557</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>pushButton_11</sender>
+   <signal>clicked()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>open_fct_todo2_2()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>644</x>
+     <y>590</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>833</x>
+     <y>594</y>
     </hint>
    </hints>
   </connection>
@@ -1032,5 +1048,7 @@
   <slot>openDataV1()</slot>
   <slot>slot1()</slot>
   <slot>open_fct_Par2_1()</slot>
+  <slot>open_fct_todo2_1()</slot>
+  <slot>open_fct_todo2_2()</slot>
  </slots>
 </ui>

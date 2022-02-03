@@ -13,6 +13,8 @@ from actions.v0_action_fct_comp_1_partie_1 import AppFctComp1Partie1
 from actions.v0_action_fct_comp_2_partie_1 import AppFctComp2Partie1
 from actions.v1_action_fct_todo2_1 import AppFctTodo2Partie1
 from actions.v1_action_fct_todo2_2 import AppFctTodo2Partie2
+from actions.v1_action_gerer_lesrepresentation import Ajouter_Representation
+from actions.v1_action_gerer_ventes import Ajouter_Reservation
 
 # Classe utilisée pour lancer la fenêtre principale de l'application et définir ses actions
 class AppWindow(QMainWindow):
@@ -32,7 +34,8 @@ class AppWindow(QMainWindow):
     fct_comp_2_dialog = None
     fct_todo2_1_dialog = None
     fct_todo2_2_dialog = None
-
+    par3_1_dialog = None
+    fct_par3_2_dialog = None
     # Constructeur
     def __init__(self):
 
@@ -227,6 +230,20 @@ class AppWindow(QMainWindow):
         self.fct_todo2_2_dialog.show()
         self.changedValue.connect(self.fct_todo2_2_dialog.refreshResult)
 
+    def open_fct_par3_1(self):
+        if self.par3_1_dialog is not None:
+            self.par3_1_dialog.close()
+        self.par3_1_dialog = Ajouter_Representation(self.data)
+        self.par3_1_dialog.show()
+
+
+    def open_fct_par3_2(self):
+        if self.fct_par3_2_dialog is not None:
+            self.fct_par3_2_dialog.close()
+        self.fct_par3_2_dialog = Ajouter_Reservation(self.data)
+        self.fct_par3_2_dialog.show()
+
+
     ####################################################################################################################
     # Fonctions liées aux évènements (signal/slot/event)
     ####################################################################################################################
@@ -248,6 +265,10 @@ class AppWindow(QMainWindow):
             self.fct_todo2_1_dialog.close()
         if (self.fct_todo2_2_dialog is not None):
             self.fct_todo2_2_dialog.close()
+        if (self.par3_1_dialog is not None):
+            self.par3_1_dialog.close()
+        if (self.fct_par3_2_dialog is not None):
+            self.fct_par3_2_dialog.close()
 
         # On ferme proprement la base de données
         self.data.close()

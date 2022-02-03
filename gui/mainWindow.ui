@@ -1030,6 +1030,38 @@
     </hint>
    </hints>
   </connection>
+  <connection>
+   <sender>pushButton_13</sender>
+   <signal>clicked()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>open_fct_par3_1()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>461</x>
+     <y>651</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>659</x>
+     <y>652</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>pushButton_14</sender>
+   <signal>clicked()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>open_fct_par3_2()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>488</x>
+     <y>682</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>630</x>
+     <y>695</y>
+    </hint>
+   </hints>
+  </connection>
  </connections>
  <slots>
   <slot>createDBV0()</slot>
@@ -1050,5 +1082,7 @@
   <slot>open_fct_Par2_1()</slot>
   <slot>open_fct_todo2_1()</slot>
   <slot>open_fct_todo2_2()</slot>
+  <slot>open_fct_par3_1()</slot>
+  <slot>open_fct_par3_2()</slot>
  </slots>
 </ui>

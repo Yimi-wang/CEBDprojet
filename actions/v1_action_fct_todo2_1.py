@@ -22,7 +22,7 @@ class AppFctTodo2Partie1(QDialog):
         display.refreshLabel(self.ui.label_fct_todo2_1, "")
         try:
             cursor = self.data.cursor()
-            result = cursor.execute("SELECT nomSpec, dateRep FROM V0_LesRepresentations WHERE noSpec = 2")
+            result = cursor.execute("SELECT nomSpec, dateRep FROM LesRepresentations_base join SpeSanResView Using(dateRep) join LesSpectacles using (noSpec)")
         except Exception as e:
             self.ui.table_fct_todo2_1.setRowCount(0)
             display.refreshLabel(self.ui.label_fct_todo2_1, "Impossible d'afficher les résultats : " + repr(e))

@@ -10,3 +10,5 @@ DROP VIEW IF EXISTS LesPlaceDisponibleView;
 DROP VIEW IF EXISTS LesRepresentationsView;
 DROP VIEW IF EXISTS LesTicketsView;
 DROP VIEW IF EXISTS LesDossiersView;
+DROP VIEW IF EXISTS SpeSanResView;
+DROP VIEW IF EXISTS PlaceReserveView;

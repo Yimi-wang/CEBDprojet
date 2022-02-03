@@ -99,5 +99,17 @@ create view LesDossiersView (noDos, prixTotal) as
     join LesTicketsView
     using (noPlace,noRang,dateRep)
     group by noDos;
-
+--2.1
+create view SpeSanResView(dateRep) as
+    select distinct dateRep
+    from LesRepresentations_base
+    except
+    select distinct dateRep
+    from LesVentes;
+--2.2
+create view PlaceReserveView(nomSpec, dateSpec,placeReservees) as
+    select nomSpec, dateRep, count(noPlace) as placeReservees
+    from LesSpectacles join LesRepresentations_base using (noSpec)
+    left join LesVentes using (dateRep)
+    group by nomSpec, dateRep
 -- TODO 3.3 : Ajouter les éléments nécessaires pour créer le trigger (attention, syntaxe SQLite différent qu'Oracle)

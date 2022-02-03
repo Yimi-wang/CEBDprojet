@@ -12,7 +12,7 @@ from actions.v0_action_fct_fournie_2_partie_0 import AppFctFournie2Partie0
 from actions.v0_action_fct_comp_1_partie_1 import AppFctComp1Partie1
 from actions.v0_action_fct_comp_2_partie_1 import AppFctComp2Partie1
 from actions.v1_action_fct_todo2_1 import AppFctTodo2Partie1
-from actions.v1_action_fct_todo2_2 import AppFctTodo2Partie1
+from actions.v1_action_fct_todo2_2 import AppFctTodo2Partie2
 
 # Classe utilisée pour lancer la fenêtre principale de l'application et définir ses actions
 class AppWindow(QMainWindow):
@@ -212,28 +212,24 @@ class AppWindow(QMainWindow):
             self.fct_comp_2_dialog.close()
         self.fct_comp_2_dialog = AppFctComp2Partie1(self.data)
         self.fct_comp_2_dialog.show()
-
+    # TODO 2 : penser à fermer comme il faut les fenêtres de la partie 2
     def open_fct_todo2_1(self):
         if self.fct_todo2_1_dialog is not None:
             self.fct_todo2_1_dialog.close()
         self.fct_todo2_1_dialog = AppFctTodo2Partie1(self.data)
         self.fct_todo2_1_dialog.show()
         self.changedValue.connect(self.fct_todo2_1_dialog.refreshResult)
-
+    # TODO 3 : penser à fermer comme il faut les fenêtres de la partie 3
     def open_fct_todo2_2(self):
         if self.fct_todo2_2_dialog is not None:
             self.fct_todo2_2_dialog.close()
-        self.fct_todo2_2_dialog = AppFctTodo2Partie1(self.data)
+        self.fct_todo2_2_dialog = AppFctTodo2Partie2(self.data)
         self.fct_todo2_2_dialog.show()
         self.changedValue.connect(self.fct_todo2_2_dialog.refreshResult)
 
     ####################################################################################################################
     # Fonctions liées aux évènements (signal/slot/event)
     ####################################################################################################################
-
-    # TODO 2 : penser à fermer comme il faut les fenêtres de la partie 2
-    # TODO 3 : penser à fermer comme il faut les fenêtres de la partie 3
-
     # On intercepte l'évènement de cloture de la fenêtre principale pour intercaler quelques actions avant sa fermeture
     def closeEvent(self, event):
 

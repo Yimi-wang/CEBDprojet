@@ -27,3 +27,4 @@ insert into V0_LesRepresentations(noSpec, nomSpec, dateRep, promoRep, prixBaseSp
 insert into V0_LesRepresentations(noSpec, nomSpec, dateRep, promoRep, prixBaseSpec, prixRep) values (1, 'How to be a parisian ?', '26/12/2019 21:00', 1, 25.0, 25.0);
 insert into V0_LesRepresentations(noSpec, nomSpec, dateRep, promoRep, prixBaseSpec, prixRep) values (2, 'Je parle toute seule', '24/12/2019 21:00', 1, 20, 20);
 insert into V0_LesRepresentations(noSpec, nomSpec, dateRep, promoRep, prixBaseSpec, prixRep) values (2, 'Je parle toute seule', '25/12/2019 23:00', 0.5, 20, 10);
+INSERT INTO V0_LesRepresentations(noSpec, nomSpec, dateRep, promoRep, prixBaseSpec, prixRep) VALUES (2, 'Je parle toute seule', '26/12/2019 23:00', 0.5, 20, 10);

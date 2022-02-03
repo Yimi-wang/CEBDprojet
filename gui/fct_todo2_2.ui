@@ -6,7 +6,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>561</width>
+    <width>794</width>
     <height>601</height>
    </rect>
   </property>
@@ -36,6 +36,11 @@
      <column>
       <property name="text">
        <string>dateRep</string>
+      </property>
+     </column>
+     <column>
+      <property name="text">
+       <string>placeReservees</string>
       </property>
      </column>
     </widget>
